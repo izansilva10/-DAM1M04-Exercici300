@@ -1,0 +1,122 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "required": [
+      "id",
+      "name",
+      "age",
+      "loyalty_level",
+      "active",
+      "joined",
+      "contact",
+      "address",
+      "preferred_store",
+      "purchases",
+      "lifetime_spend"
+    ],
+    "properties": {
+      "id": {
+        "type": "string"
+      },
+      "name": {
+        "type": "string"
+      },
+      "age": {
+        "type": "integer",
+        "minimum": 0
+      },
+      "loyalty_level": {
+        "type": "string"
+      },
+      "active": {
+        "type": "boolean"
+      },
+      "joined": {
+        "type": "string"
+      },
+      "contact": {
+        "type": "object",
+        "required": ["email", "phone"],
+        "properties": {
+          "email": {
+            "type": "string"
+          },
+          "phone": {
+            "type": "string"
+          }
+        }
+      },
+      "address": {
+        "type": "object",
+        "required": ["city", "country", "postal_code"],
+        "properties": {
+          "city": {
+            "type": "string"
+          },
+          "country": {
+            "type": "string"
+          },
+          "postal_code": {
+            "type": "string"
+          }
+        }
+      },
+      "preferred_store": {
+        "type": "object",
+        "required": ["brand", "location"],
+        "properties": {
+          "brand": {
+            "type": "string"
+          },
+          "location": {
+            "type": "string"
+          }
+        }
+      },
+      "purchases": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "required": ["date", "store", "basket"],
+          "properties": {
+            "date": {
+              "type": "string"
+            },
+            "store": {
+              "type": "string"
+            },
+            "basket": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "required": ["product", "category", "quantity", "price"],
+                "properties": {
+                  "product": {
+                    "type": "string"
+                  },
+                  "category": {
+                    "type": "string"
+                  },
+                  "quantity": {
+                    "type": "integer",
+                    "minimum": 0
+                  },
+                  "price": {
+                    "type": "number",
+                    "minimum": 0
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "lifetime_spend": {
+        "type": "number",
+        "minimum": 0
+      }
+    }
+  }
+}
