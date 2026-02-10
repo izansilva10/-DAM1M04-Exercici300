@@ -1,0 +1,110 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "required": [
+      "title",
+      "release_year",
+      "release_date",
+      "director",
+      "runtime_min",
+      "genres",
+      "countries",
+      "languages",
+      "box_office_usd",
+      "cast",
+      "soundtrack_by",
+      "awards",
+      "ratings"
+    ],
+    "properties": {
+      "title": {
+        "type": "string"
+      },
+      "release_year": {
+        "type": "integer"
+      },
+      "release_date": {
+        "type": "string"
+      },
+      "director": {
+        "type": "string"
+      },
+      "runtime_min": {
+        "type": "integer",
+        "minimum": 1
+      },
+      "genres": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      },
+      "countries": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      },
+      "languages": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      },
+      "box_office_usd": {
+        "type": "integer",
+        "minimum": 0
+      },
+      "cast": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "required": ["actor", "role"],
+          "properties": {
+            "actor": {
+              "type": "string"
+            },
+            "role": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "soundtrack_by": {
+        "type": "string"
+      },
+      "awards": {
+        "type": "object",
+        "required": ["oscars", "bafta"],
+        "properties": {
+          "oscars": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "bafta": {
+            "type": "integer",
+            "minimum": 0
+          }
+        }
+      },
+      "ratings": {
+        "type": "object",
+        "required": ["imdb", "metacritic"],
+        "properties": {
+          "imdb": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 10
+          },
+          "metacritic": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 100
+          }
+        }
+      }
+    }
+  }
+}
