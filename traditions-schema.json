@@ -1,0 +1,60 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "required": [
+      "name",
+      "country",
+      "location",
+      "time_of_year",
+      "origins",
+      "themes",
+      "activities",
+      "attendance_estimate",
+      "unesco_recognized"
+    ],
+    "properties": {
+      "name": { "type": "string" },
+      "country": { "type": "string" },
+      "location": { "type": "string" },
+      "time_of_year": {
+        "type": "object",
+        "required": ["month", "multi_day"],
+        "properties": {
+          "month": { "type": "string" },
+          "multi_day": { "type": "boolean" }
+        },
+        "additionalProperties": false
+      },
+      "origins": {
+        "type": "object",
+        "required": ["century", "background"],
+        "properties": {
+          "century": { "type": "integer" },
+          "background": { "type": "string" }
+        },
+        "additionalProperties": false
+      },
+      "themes": {
+        "type": "array",
+        "items": { "type": "string" }
+      },
+      "activities": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "required": ["title", "description"],
+          "properties": {
+            "title": { "type": "string" },
+            "description": { "type": "string" }
+          },
+          "additionalProperties": false
+        }
+      },
+      "attendance_estimate": { "type": "integer" },
+      "unesco_recognized": { "type": "boolean" }
+    },
+    "additionalProperties": false
+  }
+}

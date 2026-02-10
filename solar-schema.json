@@ -1,0 +1,68 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "required": [
+      "name",
+      "type",
+      "orbit",
+      "physical",
+      "atmosphere",
+      "satellites",
+      "discovery"
+    ],
+    "properties": {
+      "name": { "type": "string" },
+      "type": { "type": "string" },
+      "orbit": {
+        "type": "object",
+        "required": ["around", "semi_major_axis_au", "orbital_period_days"],
+        "properties": {
+          "around": { "type": "string" },
+          "semi_major_axis_au": { "type": "number" },
+          "orbital_period_days": { "type": "number" }
+        },
+        "additionalProperties": false
+      },
+      "physical": {
+        "type": "object",
+        "required": ["mean_radius_km", "mass_kg", "gravity_m_s2"],
+        "properties": {
+          "mean_radius_km": { "type": "number" },
+          "mass_kg": { "type": "number" },
+          "gravity_m_s2": { "type": "number" }
+        },
+        "additionalProperties": false
+      },
+      "atmosphere": {
+        "type": "array",
+        "items": { "type": "string" }
+      },
+      "satellites": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "required": ["name", "type", "mean_radius_km", "discovery"],
+          "properties": {
+            "name": { "type": "string" },
+            "type": { "type": "string" },
+            "mean_radius_km": { "type": "number" },
+            "discovery": { "type": "string" }
+          },
+          "additionalProperties": false
+        }
+      },
+      "discovery": {
+        "type": "object",
+        "required": ["discovered_by"],
+        "properties": {
+          "discovered_by": { "type": "string" },
+          "year": { "type": "integer" }
+        },
+        "additionalProperties": false
+      }
+    },
+    "additionalProperties": false
+  }
+}
